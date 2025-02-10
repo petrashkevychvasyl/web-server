@@ -2,9 +2,9 @@ const WebSocket = require('ws');
 const express = require('express');
 const net = require('net');
 
-const HTTP_PORT = 9000; // HTTP API for external clients
-const WS_PORT = 9001;   // WebSocket for web clients
-const TCP_PORT = 9002;  // TCP connection with Camera
+const HTTP_PORT = process.env.PORT || 9000; // HTTP API for external clients
+const WS_PORT = process.env.WS_PORT || 9001;   // WebSocket for web clients
+const TCP_PORT = process.env.TCP_PORT || 9002;  // TCP connection with Camera
 
 const app = express();
 const server = app.listen(HTTP_PORT, () => {

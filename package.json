@@ -1,4 +1,17 @@
 {
+	"name": "web-server",
+	"version": "1.0.0",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@work:petrashkevychvasyl/web-server.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
 	"dependencies": {
 		"express": "^4.21.2",
 		"ws": "^8.18.0"

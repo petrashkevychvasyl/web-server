@@ -24,15 +24,16 @@ const tcpServer = net.createServer((socket) => {
 	let cameraMacAddress = null;
 
 	socket.on('data', (data) => {
-		console.log(`All Data` + data.toString());
+		console.log(`All Data -> ` + data.toString());
 		// Assume the first message is the MAC address
-		if (!cameraMacAddress && cameraMacAddress.length < 10) {
+		if (!cameraMacAddress) {
 			cameraMacAddress = data.toString().trim();
+			if (cameraMacAddress.length > 10) return;
 			cameras[cameraMacAddress] = socket; // Store socket by MAC address
 			console.log(`Camera MAC Address: ${cameraMacAddress}`);
 		} else {
 			// Handle further data from the camera if needed
-			console.log(`Received data from camera ${cameraMacAddress}: ${data}`);
+			console.log(`Received data from camera ${cameraMacAddress}: ${data.toString()}`);
 		}
 	});
 
